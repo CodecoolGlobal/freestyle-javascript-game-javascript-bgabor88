@@ -1,6 +1,7 @@
 #!.\venv\Scripts\python.exe
 from flask import Flask, render_template, url_for, request, redirect, session
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import desc
 from datetime import datetime
 
 app = Flask(__name__)
@@ -44,7 +45,7 @@ def test():
 
 @app.route('/hall_of_fame')
 def hall_of_fame():
-    scores = Pairs.query.order_by(Pairs.score).limit(10)
+    scores = Pairs.query.order_by(desc(Pairs.score)).limit(10)
     return render_template('high_scores.html', scores=scores)
 
 

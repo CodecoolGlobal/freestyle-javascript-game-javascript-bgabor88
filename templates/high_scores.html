@@ -4,7 +4,17 @@
 {% endblock %}
 
 {% block body %}
-    {% for score in scores %}
-        <h1>{{ score.username }} - {{ score.score }}</h1>
-    {% endfor %}
+    <table></table>
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript">
+        let usernames = [];
+        let scores = [];
+        {% for score in scores %}
+            usernames.push("{{ score.username }}");
+            scores.push({{ score.score }});
+        {% endfor %}
+    </script>
+    <script type="text/javascript" src="../static/js/high_score.js"></script>
 {% endblock %}
