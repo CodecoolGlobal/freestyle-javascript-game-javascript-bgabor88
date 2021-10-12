@@ -1,5 +1,5 @@
 #!.\venv\Scripts\python.exe
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect, session
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -34,6 +34,17 @@ def game(difficulty):
 def hall_of_fame():
     scores = Pairs.query.order_by(Pairs.score).limit(10)
     return render_template('high_scores.html', scores=scores)
+
+
+@app.route('/credits')
+def game_credits():
+    creators = {}
+    return render_template('credits.html', creators=creators)
+
+
+@app.route('/tutorial')
+def tutorial():
+    return render_template('tutorial.html')
 
 
 if __name__ == "__main__":
