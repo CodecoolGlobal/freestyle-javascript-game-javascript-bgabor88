@@ -30,8 +30,8 @@ def game(difficulty):
     return render_template('game.html', difficulty=difficulty)
 
 
-@app.route('/hall_of_fame', methods=['POST', 'GET'])
-def hall_of_fame():
+@app.route('/test', methods=['POST', 'GET'])
+def test():
     if request.method == 'POST':
         username = request.form['username']
         score = request.form['score']
@@ -39,9 +39,13 @@ def hall_of_fame():
         db.session.add(new_entry)
         db.session.commit()
         return redirect(url_for('hall_of_fame'))
-    else:
-        scores = Pairs.query.order_by(Pairs.score).limit(10)
-        return render_template('high_scores.html', scores=scores)
+    return render_template('test.html')
+
+
+@app.route('/hall_of_fame')
+def hall_of_fame():
+    scores = Pairs.query.order_by(Pairs.score).limit(10)
+    return render_template('high_scores.html', scores=scores)
 
 
 @app.route('/credits', methods=['POST', 'GET'])
