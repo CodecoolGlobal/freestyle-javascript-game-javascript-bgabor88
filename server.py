@@ -11,14 +11,14 @@ db = SQLAlchemy(app)
 class Pairs(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), nullable=False)
-    score = db.Column(db.Integer(), nullable=False)
+    score = db.Column(db.String(20), nullable=False)
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
-        return '<Scores %r>' % self.id
+        return '<Pairs %r>' % self.id
 
 
-@app.route('/', methods=['POST', 'GET'])
+@app.route('/')
 def index():
     return render_template('index.html')
 
@@ -30,13 +30,21 @@ def game(difficulty):
     return render_template('game.html', difficulty=difficulty)
 
 
-@app.route('/hall_of_fame')
+@app.route('/hall_of_fame', methods=['POST', 'GET'])
 def hall_of_fame():
-    scores = Pairs.query.order_by(Pairs.score).limit(10)
-    return render_template('high_scores.html', scores=scores)
+    if request.method == 'POST':
+        username = request.form['username']
+        score = request.form['score']
+        new_entry = Pairs(username=username, score=score)
+        db.session.add(new_entry)
+        db.session.commit()
+        return redirect(url_for('hall_of_fame'))
+    else:
+        scores = Pairs.query.order_by(Pairs.score).limit(10)
+        return render_template('high_scores.html', scores=scores)
 
 
-@app.route('/credits')
+@app.route('/credits', methods=['POST', 'GET'])
 def game_credits():
     creators = {}
     return render_template('credits.html', creators=creators)
