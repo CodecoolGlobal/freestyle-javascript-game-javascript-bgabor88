@@ -26,7 +26,7 @@ def index():
 @app.route('/game/<difficulty>', methods=['POST', 'GET'])
 def game(difficulty):
     cards = []
-    card_backs = ['01', '02']
+    card_backs = ['01', '02', '03']
     num_of_cards = 10 if difficulty == 'easy' else 14 if difficulty == 'normal' else 20
     if request.method == 'POST':
         pass

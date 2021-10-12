@@ -9,11 +9,11 @@
     {% for card in cards %}
     <div class="memory-card-{{difficulty}}" data-framework="{{ card }}">
         <img class="front-face" src="/static/assets/{{ card }}.png" alt="{{ card }}"/>
-        <img class="back-face" src="/static/assets/BG{{ backgrounds[0] if difficulty == 'easy' else backgrounds[1] }}.png" alt="Card Back"/>
+        <img class="back-face" src="/static/assets/BG{{ backgrounds[2] if difficulty == 'easy' else backgrounds[0] if difficulty == 'normal' else backgrounds[1] }}.png" alt="Card Back"/>
     </div>
     <div class="memory-card-{{difficulty}}" data-framework="{{ card }}">
         <img class="front-face" src="/static/assets/{{ card }}.png" alt="{{ card }}"/>
-        <img class="back-face" src="/static/assets/BG{{ backgrounds[0] if difficulty == 'easy' else backgrounds[1] }}.png" alt="Card Back"/>
+        <img class="back-face" src="/static/assets/BG{{ backgrounds[2] if difficulty == 'easy' else backgrounds[0] if difficulty == 'normal' else backgrounds[1] }}.png" alt="Card Back"/>
     </div>
     {% endfor %}
 </section>
