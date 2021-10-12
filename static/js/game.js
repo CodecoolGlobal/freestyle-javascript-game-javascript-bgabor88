@@ -5,7 +5,7 @@ const hardCards = document.querySelectorAll('.memory-card-hard');
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
-let score = 0
+let score = 0;
 
 if (easyCards.length !== 0) {
     cards = easyCards;
@@ -74,5 +74,15 @@ function resetBoard() {
         card.style.order = randomPos.toString();
     });
 })();
+
+let time = setInterval(function() {
+  clock();
+}, 1000);
+
+function clock() {
+    let time = new Date();
+    document.getElementById('time').innerHTML = time.toLocaleTimeString();
+}
+clock()
 
 cards.forEach(card => card.addEventListener('click', flipCard));
