@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-<h1>{{ difficulty}} level</h1>
+<h1>Your score: <span id="score">0</span></h1>
 <section class="memory-game-{{ difficulty }}">
     {% for card in cards %}
     <div class="memory-card-{{difficulty}}" data-framework="{{ card }}">

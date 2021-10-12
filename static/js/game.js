@@ -5,6 +5,7 @@ const hardCards = document.querySelectorAll('.memory-card-hard');
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
+let score = 0
 
 if (easyCards.length !== 0) {
     cards = easyCards;
@@ -46,7 +47,8 @@ function checkForMatch() {
 function disableCards() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
-
+    score += 5;
+    document.getElementById('score').innerHTML = score;
     resetBoard();
 }
 
