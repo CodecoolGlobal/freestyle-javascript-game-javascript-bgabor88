@@ -2,26 +2,26 @@ const easyCards = document.querySelectorAll('.memory-card-easy');
 const normalCards = document.querySelectorAll('.memory-card-normal');
 const hardCards = document.querySelectorAll('.memory-card-hard');
 
-
-if (easyCards) {
-    cards = easyCards;
-}
-if (normalCards) {
-    cards = normalCards;
-}
-if (hardCards) {
-    cards = hardCards;
-}
-
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
+
+if (easyCards.length !== 0) {
+    cards = easyCards;
+}
+if (normalCards.length !== 0) {
+    cards = normalCards;
+}
+if (hardCards.length !== 0) {
+    cards = hardCards;
+}
 
 function flipCard() {
     if (lockBoard) return;
     if (this === firstCard) return;
 
     this.classList.add('flip');
+    console.log('added')
 
     if (!hasFlippedCard) {
         // first click
@@ -69,7 +69,7 @@ function resetBoard() {
 (function shuffle() {
     cards.forEach(card => {
         let randomPos = Math.floor(Math.random() * 12);
-        card.style.order = randomPos;
+        card.style.order = randomPos.toString();
     });
 })();
 
