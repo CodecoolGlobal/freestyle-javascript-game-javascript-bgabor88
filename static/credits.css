@@ -1,7 +1,7 @@
 @font-face { font-family: Starjedi; src: url('/static/assets/Starjedi.ttf'); }
 
 #backButton {
-  position: absolute;
+  position: fixed;
   bottom: 20px;
   width: 50px;
   height: 50px;
