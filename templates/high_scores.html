@@ -1,20 +1,19 @@
 {% extends 'base.html' %}
 {% block head %}
     <title>Hall of Fame</title>
+    <link type="text/css" rel="stylesheet" href="../static/hs.css">
+    <script type="text/javascript" defer>
+        let usernames = [];
+        let scores = [];
+        let dates = [];
+        {% for score in scores %}
+            usernames.push("{{ score.username }}");
+            scores.push("{{ score.score }}");
+            dates.push("{{ score.date_created }}");
+        {% endfor %}
+    </script>
+    <script type="text/javascript" src="../static/js/high_score.js" defer></script>
 {% endblock %}
 
 {% block body %}
-    <table></table>
-{% endblock %}
-
-{% block script %}
-    <script type="text/javascript">
-        let usernames = [];
-        let scores = [];
-        {% for score in scores %}
-            usernames.push("{{ score.username }}");
-            scores.push({{ score.score }});
-        {% endfor %}
-    </script>
-    <script type="text/javascript" src="../static/js/high_score.js"></script>
 {% endblock %}

@@ -1,28 +1,45 @@
-function generateTableHead(table, headers) {
-    let thead = table.createTHead();
-    let row = thead.insertRow();
-    for (let i = 0; i < headers.length; i++) {
-        let th = document.createElement('th');
-        let text = document.createTextNode(headers[i]);
-        th.appendChild(text);
-        row.appendChild(th);
-    }
-}
-
-function generateTable(table, usernames, scores) {
-    for (let i = 0; i < usernames.length; i++) {
-        let row = table.insertRow();
-        let usernameCell = row.insertCell();
-        let scoreCell = row.insertCell();
-        let username = document.createTextNode(usernames[i]);
-        usernameCell.appendChild(username);
-        let score = document.createTextNode(scores[i]);
-        scoreCell.appendChild(score);
-    }
-}
-
-let table = document.querySelector('Table');
+// The usernames, scores and dates variables created outside in html template in script tag.
 let headers = ['Name', 'Score'];
+let body = document.querySelector('body');
 
-generateTable(table, usernames, scores);
-generateTableHead(table, headers);
+function generateElement(parent, element, nameOfClass) {
+    let newElement = document.createElement(element);
+    newElement.setAttribute('class', nameOfClass);
+    parent.appendChild(newElement);
+    return newElement;
+}
+
+let section = generateElement(body, 'section', 'wrapper');
+let main = generateElement(section, 'main', 'row title');
+
+function generateHeader(parent, header) {
+    let ul = document.createElement('ul')
+    for (let i = 0; i < header.length; i++) {
+        let li = document.createElement('li');
+        li.innerText = header[i];
+        ul.appendChild(li);
+    }
+    parent.appendChild(ul);
+}
+
+generateHeader(main, headers);
+
+function generateContent(parent, data, date) {
+    let parentSection = generateElement(parent, 'section', 'row-fadeIn-wrapper');
+    let article = generateElement(parentSection, 'article', 'row fadeIn')
+    let ul = document.createElement('ul')
+    for (let i = 0; i < data.length; i++) {
+        let li = document.createElement('li');
+        li.innerText = data[i];
+        ul.appendChild(li);
+    }
+    article.appendChild(ul);
+    let ulDate = generateElement(article,'ul', 'more-content')
+    let liDate = document.createElement('li');
+    liDate.innerText = 'Made at' + date;
+    ulDate.appendChild(liDate);
+}
+
+for (let i = 0; i < usernames.length; i++) {
+    generateContent(section, [usernames[i], scores[i]], dates[i]);
+}
