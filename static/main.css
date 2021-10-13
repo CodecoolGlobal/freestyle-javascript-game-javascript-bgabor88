@@ -8,7 +8,7 @@ body {
   height: 100vh;
   display: flex;
   background-image: url(/static/assets/galaxy2.jpg);
-  color: white;
+  color: yellow;
 }
 
 .memory-game-easy {
@@ -104,7 +104,7 @@ body {
   height: 100%;
   padding: 10px;
   position: absolute;
-  border-radius: 5px;
+  border-radius: 8px;
   background: gray;
   backface-visibility: hidden;
 }
@@ -113,7 +113,7 @@ body {
   transform: rotateY(180deg);
 }
 
-h2.time {
-  width: 100%;
-  text-align: right;
+.time-and-score {
+  text-align: center;
+  margin: 50px 5px 75px 100px;
 }

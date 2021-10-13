@@ -24,27 +24,21 @@ clock()
 function flipCard() {
     if (lockBoard) return;
     if (this === firstCard) return;
-
     this.classList.add('flip');
     console.log('added')
-
     if (!hasFlippedCard) {
         // first click
         hasFlippedCard = true;
         firstCard = this;
-
         return;
     }
-
     // second click
     secondCard = this;
-
     checkForMatch();
 }
 
 function checkForMatch() {
     let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
-
     isMatch ? disableCards() : unFlipCards();
 }
 
@@ -69,11 +63,9 @@ function scoring() {
 
 function unFlipCards() {
     lockBoard = true;
-
     setTimeout(() => {
         firstCard.classList.remove('flip');
         secondCard.classList.remove('flip');
-
         resetBoard();
     }, 1500);
 }

@@ -4,8 +4,11 @@
 {% endblock %}
 
 {% block body %}
+<div class="time-and-score">
 <h1>Your score: <span id="score">0</span><br><span id="stopwatch"></span></h1>
+</div>
 <section class="memory-game-{{ difficulty }}">
+
     {% for card in cards %}
     <div class="memory-card-{{difficulty}}" data-framework="{{ card }}">
         <img class="front-face" src="/static/assets/{{ card }}.png" alt="{{ card }}"/>
