@@ -1,8 +1,38 @@
 {% extends 'base.html' %}
 {% block head %}
     <title>Index Page</title>
+    <link type="text/css" rel="stylesheet" href="../static/menu.css">
 {% endblock %}
 
 {% block body %}
-
+    <div class="container">
+        <div class="cards group1 show">
+            <img class="img" src="../static/assets/menu_play.png" alt="PLAY">
+            <img class="img" src="../static/assets/menu_tut.png" alt="TUTORIAL">
+            <img class="img" src="../static/assets/menu_hs.png" alt="HALL OF FAME">
+            <img class="img" src="../static/assets/menu_credits.png" alt="CREDITS">
+        </div>
+        <div class="cards group2">
+            <img class="img" title="5x4 board size" src="../static/assets/menu_easy.png" alt="EASY MODE">
+            <img class="img" title="7x4 board size" src="../static/assets/menu_normal.png" alt="NORMAL MODE">
+            <img class="img" title="8x5 board size" src="../static/assets/menu_hard.png" alt="HARD MODE">
+            <img class="img" src="../static/assets/menu_back.png" alt="BACK">
+        </div>
+        <div class="cards group3">
+            <img class="img" src="../static/assets/menu_level1.png" alt="LEVEL 1">
+            <img class="img" src="../static/assets/menu_level2.png" alt="LEVEL 2">
+            <img class="img" src="../static/assets/menu_level3.png" alt="LEVEL 3">
+            <img class="img" src="../static/assets/menu_back.png" alt="BACK">
+        </div>
+    </div>
+    {#    <section class="menu-container">#}
+    {#        <article class="">#}
+    {#            <ul>#}
+    {#                <li><img src="../static/assets/menu_play.png" alt="PLAY"></li>#}
+    {#                <li><img src="../static/assets/menu_tut.png" alt="PLAY"></li>#}
+    {#                <li><img src="../static/assets/menu_hs.png" alt="PLAY"></li>#}
+    {#                <li><img src="../static/assets/menu_credits.png" alt="PLAY"></li>#}
+    {#            </ul>#}
+    {#        </article>#}
+    {#    </section>#}
 {% endblock %}

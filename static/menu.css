@@ -1,0 +1,18 @@
+body {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+img {
+    border-radius: 20px;
+}
+
+.img {
+    border: 1px solid gold;
+    margin: 10px;
+    width: 15%;
+    height: auto;
+}
+
+.cards {
+    display: flex;
+}
