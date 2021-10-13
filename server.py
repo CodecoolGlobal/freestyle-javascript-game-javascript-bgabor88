@@ -26,9 +26,14 @@ def index():
 
 @app.route('/game/<difficulty>', methods=['POST', 'GET'])
 def game(difficulty):
+    cards = []
+    card_backs = ['01', '02', '03']
+    num_of_cards = 10 if difficulty == 'easy' else 14 if difficulty == 'normal' else 20
     if request.method == 'POST':
         pass
-    return render_template('game.html', difficulty=difficulty)
+    for number in range(1, num_of_cards + 1):
+        cards.append(number)
+    return render_template('game.html', difficulty=difficulty, cards=cards, backgrounds=card_backs)
 
 
 @app.route('/test', methods=['POST', 'GET'])
