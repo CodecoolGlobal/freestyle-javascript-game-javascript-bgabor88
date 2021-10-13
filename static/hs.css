@@ -5,7 +5,7 @@ body {
 
 .wrapper {
     width: 100%;
-    max-width: 1000px;
+    max-width: 600px;
     margin: 20px auto 100px auto;
     padding: 0;
     background: rgba(255, 255, 255, 0.1);
@@ -20,6 +20,7 @@ body {
 }
 
 .row ul li {
+    text-align: center;
     margin: 0;
     font-size: 16px;
     font-weight: normal;
@@ -29,21 +30,13 @@ body {
     box-sizing: border-box;
 }
 
-.title ul li {
-    padding: 15px 13px;
-}
-
 .row ul li {
     padding: 5px 10px;
 }
 
 .row {
-    padding: 20px 0;
     height: 30px;
-    font-size: 0;
-    position: relative;
     overflow: hidden;
-    transition: all 0.2s ease-out;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -53,9 +46,9 @@ body {
 }
 
 .title {
+    color: gold;
     padding: 25px 0 5px 0;
     height: 30px;
-    font-size: 0;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.1);
     border-left: 3px solid rgba(255, 255, 255, 0.1);
@@ -74,9 +67,7 @@ body {
     overflow: hidden;
     position: relative;
     transition: all 0.2s ease-out;
-    -webkit-animation: fadeIn 0.4s ease-out 2s 1 alternate;
     animation: fadeIn 0.4s ease-out 2s 1 alternate;
-    -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
 }
 
@@ -97,6 +88,7 @@ body {
 }
 
 ul.more-content li {
+    text-align: center;
     position: relative;
     top: 22px;
     font-size: 13px;
