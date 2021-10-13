@@ -1,18 +1,37 @@
 body {
-    background: rgba(0, 0, 0, 0.9);
+    background-color: black;
+    background-image: url("assets/menu_background.jpg");
+    background-size: cover;
 }
 
 img {
     border-radius: 20px;
 }
 
+.container {
+    margin-top: 20%;
+    margin-bottom: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+}
+
 .img {
     border: 1px solid gold;
     margin: 10px;
-    width: 15%;
+    width: 180px;
     height: auto;
 }
 
+.img:hover {
+    filter: drop-shadow(0 0 0.75rem #ffeb00);
+    cursor: pointer;
+}
+
 .cards {
+    display: none;
+}
+
+.show {
     display: flex;
+    justify-content: center;
 }
