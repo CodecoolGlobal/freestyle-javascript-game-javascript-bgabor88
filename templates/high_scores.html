@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block head %}
     <title>Hall of Fame</title>
-    <link type="text/css" rel="stylesheet" href="../static/hs.css">
     <script type="text/javascript" defer>
         let usernames = [];
         let scores = [];
@@ -13,6 +12,7 @@
         {% endfor %}
     </script>
     <script type="text/javascript" src="../static/js/high_score.js" defer></script>
+    <link type="text/css" rel="stylesheet" href="../static/hs.css">
 {% endblock %}
 
 {% block body %}
