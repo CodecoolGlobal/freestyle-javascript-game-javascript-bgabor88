@@ -36,7 +36,7 @@ function generateContent(parent, data, date) {
     article.appendChild(ul);
     let ulDate = generateElement(article,'ul', 'more-content')
     let liDate = document.createElement('li');
-    liDate.innerText = 'Made at' + date;
+    liDate.innerText = 'Made at ' + date;
     ulDate.appendChild(liDate);
 }
 
