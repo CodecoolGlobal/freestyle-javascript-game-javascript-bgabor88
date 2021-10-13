@@ -33,7 +33,7 @@ def game(difficulty):
         pass
     for number in range(1, num_of_cards + 1):
         cards.append(number)
-    return render_template('game.html', difficulty=difficulty, cards=cards, backgrounds=card_backs)
+    return render_template('game.html', difficulty=difficulty, cards=cards, backgrounds=card_backs, tutorial=False)
 
 
 @app.route('/test', methods=['POST', 'GET'])
@@ -62,7 +62,13 @@ def game_credits():
 
 @app.route('/tutorial')
 def tutorial():
-    return render_template('tutorial.html')
+    cards = []
+    card_backs = ['01', '02', '03']
+    if request.method == 'POST':
+        pass
+    for number in range(1, 11):
+        cards.append(number)
+    return render_template('game.html', difficulty='easy', cards=cards, backgrounds=card_backs, tutorial=True)
 
 
 if __name__ == "__main__":
