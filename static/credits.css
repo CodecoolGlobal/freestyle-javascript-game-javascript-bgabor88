@@ -11,7 +11,7 @@
 body {
   background-image: url("/static/assets/credits.jpg");
   overflow: hidden;
-  font-family: 'Starjedi';
+  font-family: 'Starjedi', sans-serif;
   margin: 50% 0 0 0;
   position: relative;
 }
