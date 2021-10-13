@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>Hall of Fame</title>
+{% endblock %}
+
+{% block body %}
+    <div class="form">
+        <form method="POST">
+            <label for="username"></label>
+            <input type="text" name="username" id="username" required>
+            <label for="score"></label>
+            <input type="number" name="score" id="score" required>
+            <input type="submit" formaction="/test" value="Add to DB">
+        </form>
+    </div>
+{% endblock %}

@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
+
 {% block head %}
     <title>Hall of Fame</title>
+    <script type="text/javascript" defer>
+        let usernames = [];
+        let scores = [];
+        let dates = [];
+        {% for score in scores %}
+            usernames.push("{{ score.username }}");
+            scores.push("{{ score.score }}");
+            dates.push("{{ score.date_created }}");
+        {% endfor %}
+    </script>
+    <script type="text/javascript" src="../static/js/high_score.js" defer></script>
+    <link type="text/css" rel="stylesheet" href="../static/hs.css">
 {% endblock %}
 
 {% block body %}
-    <div class="form">
-        <form method="POST">
-            <label for="username"></label>
-            <input type="text" name="username" id="username" required>
-            <label for="score"></label>
-            <input type="number" name="score" id="score" required>
-            <input type="submit" formaction="/hall_of_fame" value="Add to DB">
-        </form>
-    </div>
-    {% for score in scores %}
-        <h1>{{ score.username }} - {{ score.score }}</h1>
-    {% endfor %}
 {% endblock %}
