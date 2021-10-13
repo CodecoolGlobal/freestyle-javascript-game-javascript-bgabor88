@@ -105,10 +105,15 @@ body {
   padding: 10px;
   position: absolute;
   border-radius: 5px;
-  background: darkgray;
+  background: gray;
   backface-visibility: hidden;
 }
 
 .front-face {
   transform: rotateY(180deg);
+}
+
+h2.time {
+  width: 100%;
+  text-align: right;
 }

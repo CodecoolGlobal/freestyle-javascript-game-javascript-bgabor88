@@ -6,6 +6,8 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 let score = 0;
+let secondCounter = 0;
+let minuteCounter = 0;
 
 if (easyCards.length !== 0) {
     cards = easyCards;
@@ -16,6 +18,8 @@ if (normalCards.length !== 0) {
 if (hardCards.length !== 0) {
     cards = hardCards;
 }
+
+clock()
 
 function flipCard() {
     if (lockBoard) return;
@@ -47,9 +51,20 @@ function checkForMatch() {
 function disableCards() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
-    score += 5;
+    scoring();
     document.getElementById('score').innerHTML = score;
     resetBoard();
+}
+
+function scoring() {
+    if (minuteCounter === 0 && secondCounter <= 20){
+        score += 10;
+    } else if (minuteCounter === 0 && secondCounter > 20 && secondCounter <= 40){
+        score += 8;
+    } else {
+        score += 5;
+        console.log('5 points')
+    }
 }
 
 function unFlipCards() {
@@ -81,8 +96,13 @@ let watch = setInterval(function() {
 
 function clock() {
     let time = new Date();
-    document.getElementById('time').innerHTML = time.toLocaleTimeString();
+    secondCounter += 1;
+    if (secondCounter === 60){
+        secondCounter -= 60;
+        minuteCounter += 1;
+    }
+    document.getElementById('stopwatch').innerHTML = minuteCounter.toString() + ':' + secondCounter.toString();
+    console.log(minuteCounter.toString() + ':' + secondCounter.toString());
 }
-clock()
 
 cards.forEach(card => card.addEventListener('click', flipCard));
