@@ -75,7 +75,7 @@ function resetBoard() {
     });
 })();
 
-let time = setInterval(function() {
+let watch = setInterval(function() {
   clock();
 }, 1000);
 
