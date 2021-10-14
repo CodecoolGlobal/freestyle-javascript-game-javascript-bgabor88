@@ -2,6 +2,20 @@
 {% block head %}
     <title>Index Page</title>
     <link type="text/css" rel="stylesheet" href="../static/menu.css">
+    <script type="text/javascript" defer>
+        let easyScores = [];
+        let normalScores = [];
+        let hardScores = [];
+        {% for key, value in session['easy'].items() %}
+            easyScores.push(parseInt('{{ value }}'))
+        {% endfor %}
+        {% for key, value in session['normal'].items() %}
+            normalScores.push(parseInt('{{ value }}'))
+        {% endfor %}
+        {% for key, value in session['hard'].items() %}
+            hardScores.push(parseInt('{{ value }}'))
+        {% endfor %}
+    </script>
     <script src="../static/js/menu.js" defer></script>
 {% endblock %}
 

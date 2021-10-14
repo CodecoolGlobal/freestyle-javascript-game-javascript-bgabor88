@@ -18,15 +18,37 @@ playButton.addEventListener('click', () => {
 });
 
 easyButton.addEventListener('click', () => {
+    if (easyScores[0] === 0) {
+        level2Button.setAttribute('src', '../static/assets/menu_lock.png');
+    } else{
+        level2Button.setAttribute('src', '../static/assets/menu_level2.png');
+    }
+    if (easyScores[1] === 0) {
+        level3Button.setAttribute('src', '../static/assets/menu_lock.png');
+    } else{
+        level3Button.setAttribute('src', '../static/assets/menu_level3.png');
+    }
     difficulty = 'easy';
     menuPack2.classList.remove('show');
     menuPack3.classList.add('show');
+    menuPack3.setAttribute('data', difficulty);
 });
 
 normalButton.addEventListener('click', () => {
+    if (normalScores[0] === 0) {
+        level2Button.setAttribute('src', '../static/assets/menu_lock.png');
+    } else{
+        level2Button.setAttribute('src', '../static/assets/menu_level2.png');
+    }
+    if (normalScores[1] === 0) {
+        level3Button.setAttribute('src', '../static/assets/menu_lock.png');
+    } else{
+        level3Button.setAttribute('src', '../static/assets/menu_level3.png');
+    }
     difficulty = 'normal';
     menuPack2.classList.remove('show');
     menuPack3.classList.add('show');
+    menuPack3.setAttribute('data', difficulty);
 });
 
 backMainButton.addEventListener('click', () => {
@@ -35,9 +57,20 @@ backMainButton.addEventListener('click', () => {
 });
 
 hardButton.addEventListener('click', () => {
+    if (hardScores[0] === 0) {
+        level2Button.setAttribute('src', '../static/assets/menu_lock.png');
+    } else{
+        level2Button.setAttribute('src', '../static/assets/menu_level2.png');
+    }
+    if (hardScores[1] === 0) {
+        level3Button.setAttribute('src', '../static/assets/menu_lock.png');
+    } else{
+        level3Button.setAttribute('src', '../static/assets/menu_level3.png');
+    }
     difficulty = 'hard';
     menuPack2.classList.remove('show');
     menuPack3.classList.add('show');
+    menuPack3.setAttribute('data', difficulty);
 });
 
 backToDiffButton.addEventListener('click', () => {
@@ -47,13 +80,13 @@ backToDiffButton.addEventListener('click', () => {
 });
 
 level1Button.addEventListener('click', () => {
-    window.location.href="/game/" + difficulty;
+    window.location.href = "/game/" + difficulty;
 });
 
 level2Button.addEventListener('click', () => {
-    window.location.href="/game/" + difficulty;
+    window.location.href = "/game/" + difficulty;
 });
 
 level3Button.addEventListener('click', () => {
-    window.location.href="/game/" + difficulty;
+    window.location.href = "/game/" + difficulty;
 });
