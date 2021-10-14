@@ -14,7 +14,11 @@
     <label for="score">
     <input type="hidden" name="score" value="" id="final-score">
     </label>
+{% if level == 'level3' %}
+<p class="win-message-hide" id="win-message">Congrats!! You completed all the levels in {{ difficulty }} mode!!</p>
+{% else %}
 <p class="new-level-message-hide" id="new-level-message">New Level Unlocked!</p>
+{% endif %}
 <button class="menu-button-hide" id="button" formaction='/game/{{ difficulty }}/{{ level }}'>Back to main menu</button>
 </form>
 </div>

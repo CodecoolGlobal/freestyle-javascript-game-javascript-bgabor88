@@ -34,12 +34,10 @@ function flipCard() {
     if (this === firstCard) return;
     this.classList.add('flip');
     if (!hasFlippedCard) {
-        // first click
         hasFlippedCard = true;
         firstCard = this;
         return;
     }
-    // second click
     secondCard = this;
     checkForMatch();
 }
@@ -87,8 +85,14 @@ function endGame() {
     Swal.fire('Congrats!!!\nYour score is:' + score.toString() + '\nYour time is: ' + playTime);
     document.getElementById('button').classList.remove('menu-button-hide');
     document.getElementById('button').classList.add('menu-button');
-    document.getElementById('new-level-message').classList.remove('new-level-message-hide');
-    document.getElementById('new-level-message').classList.add('new-level-message');
+    try {
+        document.getElementById('win-message').classList.remove('win-message-hide');
+        document.getElementById('win-message').classList.add('win-message');
+    }
+    catch (error){
+        document.getElementById('new-level-message').classList.remove('new-level-message-hide');
+        document.getElementById('new-level-message').classList.add('new-level-message');
+    }
 }
 
 function unFlipCards() {
@@ -105,12 +109,12 @@ function resetBoard() {
     [firstCard, secondCard] = [null, null];
 }
 
-// (function shuffle() {
-//     cards.forEach(card => {
-//         let randomPos = Math.floor(Math.random() * 12);
-//         card.style.order = randomPos.toString();
-//     });
-// })();
+(function shuffle() {
+    cards.forEach(card => {
+        let randomPos = Math.floor(Math.random() * 12);
+        card.style.order = randomPos.toString();
+    });
+})();
 
 let watch = setInterval(function() {
   clock();

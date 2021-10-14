@@ -139,6 +139,20 @@ body {
   display: none;
 }
 
+.win-message-hide {
+  display: none;
+}
+
+.win-message {
+  animation: blinker 1s linear infinite;
+  text-shadow: 2px 2px 5px yellow;
+  margin-top: 180px;
+  font-family: 'Starjedi', sans-serif;
+  font-size: xx-large;
+  text-align: center;
+  text-decoration-color: #ffc909;
+}
+
 .new-level-message-hide {
   display: none;
 }

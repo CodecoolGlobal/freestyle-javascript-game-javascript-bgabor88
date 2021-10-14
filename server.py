@@ -54,7 +54,7 @@ def game(difficulty, level):
             final_score = sum([score for score in list(session[difficulty].values())])
             username = session['username']
             game_mode = difficulty.lower()
-            new_entry = Pairs(username=username, score=score, game_mode=game_mode)
+            new_entry = Pairs(username=username, score=final_score, game_mode=game_mode)
             db.session.add(new_entry)
             db.session.commit()
         return redirect(url_for('menu'))
