@@ -10,6 +10,12 @@ let secondCounter = 0;
 let minuteCounter = 0;
 let isWin = false;
 let foundedCards = [];
+let button = document.getElementById('button');
+
+button.addEventListener('click', () => {
+    let input = document.getElementById('final-score');
+    input.setAttribute('value', score);
+})
 
 if (easyCards.length !== 0) {
     cards = easyCards;
@@ -99,12 +105,12 @@ function resetBoard() {
     [firstCard, secondCard] = [null, null];
 }
 
-(function shuffle() {
-    cards.forEach(card => {
-        let randomPos = Math.floor(Math.random() * 12);
-        card.style.order = randomPos.toString();
-    });
-})();
+// (function shuffle() {
+//     cards.forEach(card => {
+//         let randomPos = Math.floor(Math.random() * 12);
+//         card.style.order = randomPos.toString();
+//     });
+// })();
 
 let watch = setInterval(function() {
   clock();

@@ -80,13 +80,13 @@ backToDiffButton.addEventListener('click', () => {
 });
 
 level1Button.addEventListener('click', () => {
-    window.location.href = "/game/" + difficulty;
+    window.location.href="/game/" + difficulty + "/level1";
 });
 
 level2Button.addEventListener('click', () => {
-    window.location.href = "/game/" + difficulty;
+    window.location.href="/game/" + difficulty + "/level2";
 });
 
 level3Button.addEventListener('click', () => {
-    window.location.href = "/game/" + difficulty;
+    window.location.href="/game/" + difficulty + "/level3";
 });

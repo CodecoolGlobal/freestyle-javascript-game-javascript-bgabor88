@@ -41,20 +41,31 @@ def menu():
     return render_template('menu.html', session=session)
 
 
-@app.route('/game/<difficulty>', methods=['POST', 'GET'])
-def game(difficulty):
+@app.route('/game/<difficulty>/<level>', methods=['POST', 'GET'])
+def game(difficulty, level):
+    print(difficulty, 'kuki')
     cards = []
     already_choosed = []
     card_backs = ['01', '02', '03']
     num_of_cards = 10 if difficulty == 'easy' else 14 if difficulty == 'normal' else 20
     if request.method == 'POST':
-        return redirect(url_for('menu'))
+        score = int(request.form['score'])
+        session[difficulty][level] = score
+        if level == 'level3':
+            final_score = sum([score for score in list(session[difficulty].values())])
+            print(final_score)
+            # username = session['username']
+            # game_mode = difficulty.lower()
+            # new_entry = Pairs(username=username, score=score, game_mode=game_mode)
+            # db.session.add(new_entry)
+            # db.session.commit()
+            return redirect(url_for('menu'))
     while len(cards) != num_of_cards:
         choose = random.randint(1, 36)
         if choose not in already_choosed:
             cards.append(choose)
             already_choosed.append(choose)
-    return render_template('game.html', difficulty=difficulty, cards=cards, backgrounds=card_backs)
+    return render_template('game.html', difficulty=difficulty, level=level, cards=cards, backgrounds=card_backs)
 
 
 @app.route('/test', methods=['POST', 'GET'])
