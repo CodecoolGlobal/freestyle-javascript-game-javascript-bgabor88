@@ -14,6 +14,7 @@ class Pairs(db.Model):
     username = db.Column(db.String(20), nullable=False)
     score = db.Column(db.String(20), nullable=False)
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
+    game_mode = db.Column(db.String(20), nullable=False)
 
     def __repr__(self):
         return '<Pairs %r>' % self.id
@@ -50,8 +51,10 @@ def test():
 
 @app.route('/hall_of_fame')
 def hall_of_fame():
-    scores = Pairs.query.order_by(desc(Pairs.score)).limit(10)
-    return render_template('high_scores.html', scores=scores)
+    tables = []
+    for mode in ['easy', 'normal', 'hard']:
+        tables.append(Pairs.query.filter(Pairs.game_mode == mode).order_by(desc(Pairs.score)).limit(10))
+    return render_template('high_scores.html', tables=tables)
 
 
 @app.route('/credits', methods=['POST', 'GET'])
