@@ -31,7 +31,6 @@ def index():
 
 @app.route('/menu', methods=['POST', 'GET'])
 def menu():
-    print(session["easy"])
     if request.method == 'POST':
         username = request.form['username']
         session['username'] = username
