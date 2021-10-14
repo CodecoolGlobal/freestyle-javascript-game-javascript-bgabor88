@@ -114,6 +114,7 @@ body {
 }
 
 .time-and-score {
+  font-family: 'Starjedi', sans-serif;
   text-align: center;
   margin: 50px 5px 75px 100px;
 }
@@ -146,6 +147,7 @@ body {
   animation: blinker 1s linear infinite;
   text-shadow: 2px 2px 5px yellow;
   margin-top: 180px;
+  font-family: 'Starjedi', sans-serif;
   font-size: xx-large;
   text-align: center;
   text-decoration-color: #ffc909;
