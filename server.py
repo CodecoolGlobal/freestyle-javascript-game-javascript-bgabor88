@@ -1,4 +1,5 @@
 #!.\venv\Scripts\python.exe
+import random
 from flask import Flask, render_template, url_for, request, redirect, session
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import desc
@@ -28,12 +29,16 @@ def index():
 @app.route('/game/<difficulty>', methods=['POST', 'GET'])
 def game(difficulty):
     cards = []
+    already_choosed = []
     card_backs = ['01', '02', '03']
     num_of_cards = 10 if difficulty == 'easy' else 14 if difficulty == 'normal' else 20
     if request.method == 'POST':
         pass
-    for number in range(1, num_of_cards + 1):
-        cards.append(number)
+    while len(cards) != num_of_cards:
+        choose = random.randint(1, 36)
+        if choose not in already_choosed:
+            cards.append(choose)
+            already_choosed.append(choose)
     return render_template('game.html', difficulty=difficulty, cards=cards, backgrounds=card_backs)
 
 
