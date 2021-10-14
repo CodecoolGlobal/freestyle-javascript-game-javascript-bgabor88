@@ -5,11 +5,15 @@
 }
 
 body {
-  height: 100vh;
+  height: 100vh !important;
   display: flex;
   background-image: url(/static/assets/galaxy2.jpg);
   color: yellow;
 }
+
+body.swal2-shown { display:flex; height:100vh !important; }
+
+html.swal2-shown { height: 100vh;}
 
 .memory-game-easy {
   width: 50%;
