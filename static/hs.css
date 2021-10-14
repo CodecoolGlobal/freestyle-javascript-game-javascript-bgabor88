@@ -4,6 +4,7 @@ body {
 }
 
 .wrapper {
+    display: none;
     width: 100%;
     max-width: 600px;
     margin: 20px auto 100px auto;
@@ -12,6 +13,10 @@ body {
     color: rgba(255, 255, 255, 0.9);
     overflow: hidden;
     position: relative;
+}
+
+.show {
+    display: block;
 }
 
 .row ul {
@@ -34,6 +39,28 @@ body {
     padding: 5px 10px;
 }
 
+.buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.buts {
+    margin: 20px auto 0 auto;
+}
+
+.button {
+    width: 33%;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.clicked {
+    background-color: gold;
+}
+
 .row {
     height: 30px;
     overflow: hidden;
@@ -47,7 +74,7 @@ body {
 
 .title {
     color: gold;
-    padding: 25px 0 5px 0;
+    padding: 5px 0 5px 0;
     height: 30px;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.1);

@@ -6,10 +6,14 @@
         let usernames = [];
         let scores = [];
         let dates = [];
-        {% for score in scores %}
-            usernames.push("{{ score.username }}");
-            scores.push("{{ score.score }}");
-            dates.push("{{ score.date_created }}");
+        let modes = [];
+        {% for table in tables %}
+            {% for score in table %}
+                usernames.push("{{ score.username }}");
+                scores.push("{{ score.score }}");
+                dates.push("{{ score.date_created }}");
+                modes.push("{{ score.game_mode }}");
+            {% endfor %}
         {% endfor %}
     </script>
     <script type="text/javascript" src="../static/js/high_score.js" defer></script>
