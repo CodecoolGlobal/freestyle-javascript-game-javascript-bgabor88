@@ -67,7 +67,7 @@ function generateButtons(game_modes) {
             button.classList.add('clicked');
         }
         button.setAttribute('id', game_modes[i] + '-button');
-        button.innerText = game_modes[i];
+        button.innerText = game_modes[i].toUpperCase();
         main.appendChild(button);
     }
 }
