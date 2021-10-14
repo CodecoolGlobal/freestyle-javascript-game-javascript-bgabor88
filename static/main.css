@@ -137,3 +137,22 @@ body {
 .menu-button-hide {
   display: none;
 }
+
+.new-level-message-hide {
+  display: none;
+}
+
+.new-level-message {
+  animation: blinker 1s linear infinite;
+  text-shadow: 2px 2px 5px yellow;
+  margin-top: 180px;
+  font-size: xx-large;
+  text-align: center;
+  text-decoration-color: #ffc909;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}

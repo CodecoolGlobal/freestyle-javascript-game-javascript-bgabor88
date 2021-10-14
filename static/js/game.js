@@ -7,7 +7,7 @@ let lockBoard = false;
 let firstCard, secondCard;
 let score = 0;
 let secondCounter = 0;
-let minuteCounter = 0
+let minuteCounter = 0;
 let isWin = false;
 let foundedCards = [];
 
@@ -21,7 +21,7 @@ if (hardCards.length !== 0) {
     cards = hardCards;
 }
 
-clock()
+clock();
 
 function flipCard() {
     if (lockBoard) return;
@@ -47,7 +47,7 @@ function disableCards() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
     scoring();
-    foundedCards.push(firstCard.alt)
+    foundedCards.push(firstCard.alt);
     document.getElementById('score').innerHTML = score;
     hasWon();
     resetBoard();
@@ -65,22 +65,24 @@ function scoring() {
 
 function hasWon() {
     if (easyCards.length !== 0 && foundedCards.length === 10){
-        endGame()
+        endGame();
     }
     if (normalCards.length !== 0 && foundedCards.length === 14){
-        endGame()
+        endGame();
     }
     if (hardCards.length !== 0 && foundedCards.length === 20){
-        endGame()
+        endGame();
     }
 }
 
 function endGame() {
     isWin = true;
-    let playTime = document.getElementById('stopwatch').innerHTML
-    Swal.fire('Congrats!!!\nYour score is:' + score.toString() + '\nYour time is: ' + playTime)
+    let playTime = document.getElementById('stopwatch').innerHTML;
+    Swal.fire('Congrats!!!\nYour score is:' + score.toString() + '\nYour time is: ' + playTime);
     document.getElementById('button').classList.remove('menu-button-hide');
     document.getElementById('button').classList.add('menu-button');
+    document.getElementById('new-level-message').classList.remove('new-level-message-hide');
+    document.getElementById('new-level-message').classList.add('new-level-message');
 }
 
 function unFlipCards() {
