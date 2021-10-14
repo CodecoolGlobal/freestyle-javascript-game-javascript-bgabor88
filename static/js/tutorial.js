@@ -40,9 +40,9 @@ function disableCards() {
 }
 
 function scoring() {
-    if (minuteCounter === 0 && secondCounter <= 20) {
+    if (minuteCounter === 0 && secondCounter <= 30) {
         score += 10;
-    } else if (minuteCounter === 0 && secondCounter > 20 && secondCounter <= 40) {
+    } else if (minuteCounter === 0 && secondCounter > 30 && secondCounter <= 60) {
         score += 8;
     } else {
         score += 5;
