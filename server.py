@@ -43,7 +43,6 @@ def menu():
 
 @app.route('/game/<difficulty>/<level>', methods=['POST', 'GET'])
 def game(difficulty, level):
-    print(difficulty, 'kuki')
     cards = []
     already_choosed = []
     card_backs = ['01', '02', '03']
@@ -53,13 +52,12 @@ def game(difficulty, level):
         session[difficulty][level] = score
         if level == 'level3':
             final_score = sum([score for score in list(session[difficulty].values())])
-            print(final_score)
-            # username = session['username']
-            # game_mode = difficulty.lower()
-            # new_entry = Pairs(username=username, score=score, game_mode=game_mode)
-            # db.session.add(new_entry)
-            # db.session.commit()
-            return redirect(url_for('menu'))
+            username = session['username']
+            game_mode = difficulty.lower()
+            new_entry = Pairs(username=username, score=score, game_mode=game_mode)
+            db.session.add(new_entry)
+            db.session.commit()
+        return redirect(url_for('menu'))
     while len(cards) != num_of_cards:
         choose = random.randint(1, 36)
         if choose not in already_choosed:
