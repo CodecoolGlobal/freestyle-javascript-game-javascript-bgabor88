@@ -12,6 +12,7 @@ let isWin = false;
 let foundedCards = [];
 let button = document.getElementById('button');
 
+
 button.addEventListener('click', () => {
     let input = document.getElementById('final-score');
     input.setAttribute('value', score);
@@ -25,6 +26,14 @@ if (normalCards.length !== 0) {
 }
 if (hardCards.length !== 0) {
     cards = hardCards;
+}
+
+if(level === 'level2'){
+    document.body.classList.add('level2');
+}
+if(level === 'level3'){
+    document.body.classList.remove('level2');
+    document.body.classList.add('level3');
 }
 
 clock();
