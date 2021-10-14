@@ -31,12 +31,14 @@ def index():
 
 @app.route('/menu', methods=['POST', 'GET'])
 def menu():
+    print(session["easy"])
     if request.method == 'POST':
         username = request.form['username']
         session['username'] = username
         session['easy'] = {'level1': 0, 'level2': 0, 'level3': 0}
         session['normal'] = {'level1': 0, 'level2': 0, 'level3': 0}
         session['hard'] = {'level1': 0, 'level2': 0, 'level3': 0}
+        session.modified = True
         return redirect(url_for('menu', session=session))
     return render_template('menu.html', session=session)
 
@@ -50,11 +52,12 @@ def game(difficulty, level):
     if request.method == 'POST':
         score = int(request.form['score'])
         session[difficulty][level] = score
+        session.modified = True
         if level == 'level3':
             final_score = sum([score for score in list(session[difficulty].values())])
             username = session['username']
             game_mode = difficulty.lower()
-            new_entry = Pairs(username=username, score=score, game_mode=game_mode)
+            new_entry = Pairs(username=username, score=final_score, game_mode=game_mode)
             db.session.add(new_entry)
             db.session.commit()
         return redirect(url_for('menu'))

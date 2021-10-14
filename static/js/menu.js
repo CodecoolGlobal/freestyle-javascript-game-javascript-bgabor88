@@ -20,12 +20,12 @@ playButton.addEventListener('click', () => {
 easyButton.addEventListener('click', () => {
     if (easyScores[0] === 0) {
         level2Button.setAttribute('src', '../static/assets/menu_lock.png');
-    } else{
+    } else {
         level2Button.setAttribute('src', '../static/assets/menu_level2.png');
     }
     if (easyScores[1] === 0) {
         level3Button.setAttribute('src', '../static/assets/menu_lock.png');
-    } else{
+    } else {
         level3Button.setAttribute('src', '../static/assets/menu_level3.png');
     }
     difficulty = 'easy';
@@ -37,12 +37,12 @@ easyButton.addEventListener('click', () => {
 normalButton.addEventListener('click', () => {
     if (normalScores[0] === 0) {
         level2Button.setAttribute('src', '../static/assets/menu_lock.png');
-    } else{
+    } else {
         level2Button.setAttribute('src', '../static/assets/menu_level2.png');
     }
     if (normalScores[1] === 0) {
         level3Button.setAttribute('src', '../static/assets/menu_lock.png');
-    } else{
+    } else {
         level3Button.setAttribute('src', '../static/assets/menu_level3.png');
     }
     difficulty = 'normal';
@@ -59,12 +59,12 @@ backMainButton.addEventListener('click', () => {
 hardButton.addEventListener('click', () => {
     if (hardScores[0] === 0) {
         level2Button.setAttribute('src', '../static/assets/menu_lock.png');
-    } else{
+    } else {
         level2Button.setAttribute('src', '../static/assets/menu_level2.png');
     }
     if (hardScores[1] === 0) {
         level3Button.setAttribute('src', '../static/assets/menu_lock.png');
-    } else{
+    } else {
         level3Button.setAttribute('src', '../static/assets/menu_level3.png');
     }
     difficulty = 'hard';
@@ -80,13 +80,37 @@ backToDiffButton.addEventListener('click', () => {
 });
 
 level1Button.addEventListener('click', () => {
-    window.location.href="/game/" + difficulty + "/level1";
+    window.location.href = "/game/" + difficulty + "/level1";
 });
 
 level2Button.addEventListener('click', () => {
-    window.location.href="/game/" + difficulty + "/level2";
+    let currentScores;
+    if (difficulty === 'easy') {
+        console.log('easy')
+        currentScores = easyScores;
+    } else if (difficulty === 'normal') {
+        console.log('normal')
+        currentScores = normalScores;
+    } else {
+        console.log('hard')
+        currentScores = hardScores;
+    }
+    console.log(currentScores)
+    if (currentScores[0] > 0) {
+        window.location.href = "/game/" + difficulty + "/level2";
+    }
 });
 
 level3Button.addEventListener('click', () => {
-    window.location.href="/game/" + difficulty + "/level3";
+    let currentScores;
+    if (difficulty === 'easy') {
+        currentScores = easyScores;
+    } else if (difficulty === 'normal') {
+        currentScores = normalScores;
+    } else {
+        currentScores = hardScores;
+    }
+    if (currentScores[1] > 0) {
+        window.location.href = "/game/" + difficulty + "/level3";
+    }
 });
