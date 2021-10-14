@@ -41,8 +41,9 @@ def menu():
     return render_template('menu.html', session=session)
 
 
-@app.route('/game/<difficulty>', methods=['POST', 'GET'])
-def game(difficulty):
+@app.route('/game/<difficulty>/<level>', methods=['POST', 'GET'])
+def game(difficulty, level):
+    print(difficulty, 'kuki')
     cards = []
     already_choosed = []
     card_backs = ['01', '02', '03']
@@ -64,7 +65,7 @@ def game(difficulty):
         if choose not in already_choosed:
             cards.append(choose)
             already_choosed.append(choose)
-    return render_template('game.html', difficulty=difficulty, cards=cards, backgrounds=card_backs)
+    return render_template('game.html', difficulty=difficulty, level=level, cards=cards, backgrounds=card_backs)
 
 
 @app.route('/test', methods=['POST', 'GET'])
