@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 {% block head %}
+    {% if level == 'level1'%}
+        <script>new Audio('/static/assets/game1.mp3').play()</script>
+    {% elif level == 'level2'%}
+        <script>new Audio('/static/assets/game2.mp3').play()</script>
+    {% else %}
+        <script>new Audio('/static/assets/game3.mp3').play()</script>
+    {% endif %}
     <link type="text/css" rel="stylesheet" href="/static/main.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
