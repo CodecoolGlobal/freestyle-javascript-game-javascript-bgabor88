@@ -1,7 +1,33 @@
 {% extends 'base.html' %}
 {% block head %}
     <title>Index Page</title>
+    <link type="text/css" rel="stylesheet" href="../static/menu.css">
+    <script src="../static/js/menu.js" defer></script>
 {% endblock %}
 
 {% block body %}
+    <div class="container">
+        <div id="pack-1" class="cards group1 show">
+            <img id="play" class="img" src="../static/assets/menu_play.png" alt="PLAY">
+            <img onClick="window.location.href='/tutorial'" class="img" src="../static/assets/menu_tut.png"
+                 alt="TUTORIAL">
+            <img onClick="window.location.href='/hall_of_fame'" href="/hall_of_fame" class="img"
+                 src="../static/assets/menu_hs.png" alt="HALL OF FAME">
+            <img onClick="window.location.href='/credits'" href="/credits" class="img"
+                 src="../static/assets/menu_credits.png" alt="CREDITS">
+        </div>
+        <div id="pack-2" class="cards group2">
+            <img id="easy" class="img" title="5x4 board size" src="../static/assets/menu_easy.png" alt="EASY MODE">
+            <img id="normal" class="img" title="7x4 board size" src="../static/assets/menu_normal.png"
+                 alt="NORMAL MODE">
+            <img id="hard" class="img" title="8x5 board size" src="../static/assets/menu_hard.png" alt="HARD MODE">
+            <img id="back-to-main" class="img" src="../static/assets/menu_back.png" alt="BACK">
+        </div>
+        <div id="pack-3" class="cards group3">
+            <img id="level1" class="img" src="../static/assets/menu_level1.png" alt="LEVEL 1">
+            <img id="level2" class="img" src="../static/assets/menu_level2.png" alt="LEVEL 2">
+            <img id="level3" class="img" src="../static/assets/menu_level3.png" alt="LEVEL 3">
+            <img id="back-to-difficulty" class="img" src="../static/assets/menu_back.png" alt="BACK">
+        </div>
+    </div>
 {% endblock %}
