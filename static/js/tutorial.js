@@ -86,6 +86,15 @@ cards.forEach(card => card.addEventListener('click', flipCard));
 
 let firstClickFinished = false
 let secondClickFinished = false
+let thirdClickFinished = false
+
+function whichClick() {
+    if (secondClickFinished == false) {
+        firstClick()
+    } else {
+        thirdClick()
+    }
+}
 
 function firstClick() {
     firstClickFinished = true
@@ -113,6 +122,37 @@ function secondClick() {
         text: 'These were not a pair. Click on the first one again!',
         confirmButtonText: 'Sure!'
     })
+    setTimeout(() => {  firstClickFinished = false; }, 2000);
+}
+
+function thirdClick() {
+    firstClickFinished = true
+    Swal.fire({
+        title: 'Use the force!',
+        text: 'I can feel great disturbance. Click on the THIRD card!',
+        confirmButtonText: 'Sure!'
+    })
+    setInterval(function(){
+        if (thirdClickFinished == false) {
+            if (cards[1].style.visibility === 'hidden') {
+                cards[1].style.visibility = 'visible';
+            } else {
+                cards[1].style.visibility = 'hidden';
+            }
+        }
+    }, 1000);
+    cards[1].addEventListener('click', pointsDetails);
+}
+
+function pointsDetails() {
+    thirdClickFinished = true
+    Swal.fire({
+        title: "That's it!",
+        text: 'You found a pair! You get 10 points if the timer is under 30 sec, 8 points if under 60 sec and 5 points after that. You had learned the basics, the force will guide your way!',
+        confirmButtonText: "The empire can't stop me! Back to the main menu!"
+    }).then((result) => {
+        window.location.href = "/";
+        })
 }
 
 window.onload = (event) => {
@@ -139,7 +179,7 @@ window.onload = (event) => {
                 }
             }, 1000);
     })
-    cards[0].addEventListener('click', firstClick);
+    cards[0].addEventListener('click', whichClick);
 
     /*new Promise((resolve, reject) => {
         document.body.style.background = 'url(/static/assets/tutorial.jpg), no-repeat center center fixed';
