@@ -129,6 +129,11 @@ body {
   margin-top: 200px;
 }
 
+.menu-button:hover {
+  filter: drop-shadow(0 0 0.75rem #ffeb00);
+  cursor: pointer;
+}
+
 .menu-button-hide {
   display: none;
 }
