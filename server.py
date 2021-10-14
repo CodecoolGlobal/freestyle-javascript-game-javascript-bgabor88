@@ -24,6 +24,8 @@ class Pairs(db.Model):
 
 @app.route('/')
 def index():
+    if 'username' in session.keys():
+        return redirect(url_for('menu'))
     return render_template('entry.html')
 
 
