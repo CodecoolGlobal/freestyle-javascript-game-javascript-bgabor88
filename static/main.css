@@ -11,6 +11,20 @@ body {
   color: yellow;
 }
 
+body.level2 {
+  height: 100vh !important;
+  display: flex;
+  background-image: url(/static/assets/bg-level-2.jpg);
+  color: yellow;
+}
+
+body.level3 {
+  height: 100vh !important;
+  display: flex;
+  background-image: url(/static/assets/bg-level-3.jpg);
+  color: yellow;
+}
+
 body.swal2-shown { display:flex; height:100vh !important; }
 
 html.swal2-shown { height: 100vh;}
