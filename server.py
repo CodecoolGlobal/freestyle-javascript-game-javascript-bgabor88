@@ -8,6 +8,7 @@ from datetime import datetime
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///pairs.db"
 db = SQLAlchemy(app)
+app.secret_key = 'New trilogy sucks!'
 
 
 class Pairs(db.Model):
@@ -23,7 +24,19 @@ class Pairs(db.Model):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('entry.html')
+
+
+@app.route('/menu', methods=['POST', 'GET'])
+def menu():
+    if request.method == 'POST':
+        username = request.form['username']
+        session['username'] = username
+        session['easy'] = {'level1': 0, 'level2': 0, 'level3': 0}
+        session['normal'] = {'level1': 0, 'level2': 0, 'level3': 0}
+        session['hard'] = {'level1': 0, 'level2': 0, 'level3': 0}
+        return redirect(url_for('menu', session=session))
+    return render_template('index.html', session=session)
 
 
 @app.route('/game/<difficulty>', methods=['POST', 'GET'])
@@ -33,7 +46,7 @@ def game(difficulty):
     card_backs = ['01', '02', '03']
     num_of_cards = 10 if difficulty == 'easy' else 14 if difficulty == 'normal' else 20
     if request.method == 'POST':
-        pass
+        return redirect(url_for('menu'))
     while len(cards) != num_of_cards:
         choose = random.randint(1, 36)
         if choose not in already_choosed:

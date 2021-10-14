@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>Index Page</title>
+    <link type="text/css" rel="stylesheet" href="../static/entry.css">
+    <script src="../static/js/entry.js" defer></script>
+{% endblock %}
+
+{% block body %}
+{#    <div class="container">#}
+        <form class="entry" method="post">
+            <label for="username">
+                <input value="Username..." onClick="this.value=''" type="text" maxlength="20" name="username" id="username" required>
+            </label>
+            <button formaction="/menu">Send...</button>
+        </form>
+{#    </div>#}
+{% endblock %}

@@ -145,5 +145,5 @@ menuButtonSection.appendChild(menuButton);
 body.appendChild(menuButtonSection);
 
 menuButton.addEventListener('click', () => {
-    window.location.href="/";
+    window.location.href="/menu";
 });

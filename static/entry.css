@@ -1,0 +1,44 @@
+body {
+    background-color: black;
+    background-image: url("assets/start_bg.jpg");
+    background-size: cover;
+    display: grid;
+    place-items: center;
+}
+
+input {
+    width: 500px;
+    height: 30px;
+    opacity: 0.75;
+}
+
+.username {
+    width: 100%;
+}
+
+.entry {
+    margin-top: 20%;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.container {
+    height: 10%;
+    margin-top: 10%;
+    margin-bottom: auto;
+}
+
+button {
+    opacity: 0.75;
+    font-size: larger;
+}
+
+button:hover {
+    opacity: 1;
+    font-size: larger;
+    font-weight: bold;
+    cursor: pointer;
+}
