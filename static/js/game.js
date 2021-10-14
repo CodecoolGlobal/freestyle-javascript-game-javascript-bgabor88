@@ -7,7 +7,9 @@ let lockBoard = false;
 let firstCard, secondCard;
 let score = 0;
 let secondCounter = 0;
-let minuteCounter = 0;
+let minuteCounter = 0
+let isWin = false;
+let foundedCards = [];
 
 if (easyCards.length !== 0) {
     cards = easyCards;
@@ -25,7 +27,6 @@ function flipCard() {
     if (lockBoard) return;
     if (this === firstCard) return;
     this.classList.add('flip');
-    console.log('added')
     if (!hasFlippedCard) {
         // first click
         hasFlippedCard = true;
@@ -46,7 +47,9 @@ function disableCards() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
     scoring();
+    foundedCards.push(firstCard.alt)
     document.getElementById('score').innerHTML = score;
+    hasWon();
     resetBoard();
 }
 
@@ -57,8 +60,27 @@ function scoring() {
         score += 8;
     } else {
         score += 5;
-        console.log('5 points')
     }
+}
+
+function hasWon() {
+    if (easyCards.length !== 0 && foundedCards.length === 10){
+        endGame()
+    }
+    if (normalCards.length !== 0 && foundedCards.length === 14){
+        endGame()
+    }
+    if (hardCards.length !== 0 && foundedCards.length === 20){
+        endGame()
+    }
+}
+
+function endGame() {
+    isWin = true;
+    let playTime = document.getElementById('stopwatch').innerHTML
+    Swal.fire('Congrats!!!\nYour score is:' + score.toString() + '\nYour time is: ' + playTime)
+    document.getElementById('button').classList.remove('menu-button-hide');
+    document.getElementById('button').classList.add('menu-button');
 }
 
 function unFlipCards() {
@@ -93,8 +115,9 @@ function clock() {
         secondCounter -= 60;
         minuteCounter += 1;
     }
-    document.getElementById('stopwatch').innerHTML = minuteCounter.toString() + ':' + secondCounter.toString();
-    console.log(minuteCounter.toString() + ':' + secondCounter.toString());
+    if (isWin !== true) {
+        document.getElementById('stopwatch').innerHTML = minuteCounter.toString() + ':' + secondCounter.toString();
+    }
 }
 
 cards.forEach(card => card.addEventListener('click', flipCard));
