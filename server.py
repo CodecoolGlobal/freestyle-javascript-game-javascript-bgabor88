@@ -38,7 +38,7 @@ def menu():
         session['normal'] = {'level1': 0, 'level2': 0, 'level3': 0}
         session['hard'] = {'level1': 0, 'level2': 0, 'level3': 0}
         return redirect(url_for('menu', session=session))
-    return render_template('index.html', session=session)
+    return render_template('menu.html', session=session)
 
 
 @app.route('/game/<difficulty>', methods=['POST', 'GET'])
