@@ -6,12 +6,12 @@
 {% endblock %}
 
 {% block body %}
-{#    <div class="container">#}
-        <form class="entry" method="post">
-            <label for="username">
-                <input value="Username..." onClick="this.value=''" type="text" maxlength="20" name="username" id="username" required>
-            </label>
-            <button formaction="/menu">Send...</button>
-        </form>
-{#    </div>#}
+    <img src="../static/assets/logo.png" alt="LOGO">
+    <form class="entry" method="post">
+        <label for="username">
+            <input value="Username..." onClick="this.value=''" type="text" maxlength="20" name="username" id="username"
+                   required>
+        </label>
+        <button formaction="/menu">Send...</button>
+    </form>
 {% endblock %}
