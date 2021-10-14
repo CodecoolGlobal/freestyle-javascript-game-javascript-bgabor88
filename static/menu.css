@@ -6,6 +6,11 @@ body {
 
 img {
     border-radius: 20px;
+    opacity: 0.8;
+}
+
+img:hover {
+    opacity: 1;
 }
 
 .container {
@@ -18,11 +23,12 @@ img {
 .img {
     border: 1px solid gold;
     margin: 10px;
-    width: 180px;
+    width: 10%;
     height: auto;
 }
 
 .img:hover {
+    border: 1px solid white;
     filter: drop-shadow(0 0 0.75rem #ffeb00);
     cursor: pointer;
 }

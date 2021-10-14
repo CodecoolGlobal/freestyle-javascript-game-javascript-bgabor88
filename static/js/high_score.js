@@ -135,3 +135,15 @@ hardButton.addEventListener('click', () => {
         easyButton.classList.remove('clicked');
     }
 })
+
+let menuButton = document.createElement('button');
+let menuButtonSection = document.createElement('section');
+menuButton.setAttribute('class', 'button-menu');
+menuButtonSection.setAttribute('class', 'wrapper menu-button show');
+menuButton.innerText = 'MAIN MENU'
+menuButtonSection.appendChild(menuButton);
+body.appendChild(menuButtonSection);
+
+menuButton.addEventListener('click', () => {
+    window.location.href="/";
+});
